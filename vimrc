@@ -24,6 +24,7 @@ set autoread                                                 " reload files when
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
+set cursorline
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
@@ -40,7 +41,7 @@ set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
 set tabstop=8                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,.DS_Store
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 
@@ -68,6 +69,11 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " in case you forgot to sudo
 cmap w!! %!sudo tee > /dev/null %
